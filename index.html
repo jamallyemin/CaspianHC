@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caspian Hack Club — Hardware & Open Source</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+ 
+<header class="hero">
+  <nav class="topnav">
+    <a href="#" class="brand">
+      <img src="logo.png" alt="CaspianHC logo" class="brand-icon">
+      <span class="logo">Caspian Hack Club</span>
+    </a>
+    <a href="#projects" class="nav-link">projects/</a>
+  </nav>
+ 
+  <div class="hero-content">
+    <p class="eyebrow">// hardware &amp; open-source electronics</p>
+    <h1>Caspian Hack Club</h1>
+    <p class="subtitle">We solder things, break things, and open-source the fix. Custom PCBs, microcontrollers, and hardware built in the open.</p>
+    <div class="cta-group">
+      <a href="#projects" class="btn btn-primary">view projects</a>
+      <a href="#what-we-do" class="btn btn-ghost">what we do</a>
+    </div>
+  </div>
+</header>
+ 
+<main>
+  <section id="what-we-do" class="section">
+    <h2><span class="tag">01</span> What We Do</h2>
+    <div class="grid-3">
+      <div class="card">
+        <span class="card-index">[a]</span>
+        <h3>Custom PCBs</h3>
+        <p>Designing and fabricating boards from schematic to silkscreen. No black-box modules.</p>
+      </div>
+      <div class="card">
+        <span class="card-index">[b]</span>
+        <h3>Microcontrollers</h3>
+        <p>Firmware and embedded builds on AVR, ESP32, and whatever's on the bench that day.</p>
+      </div>
+      <div class="card">
+        <span class="card-index">[c]</span>
+        <h3>Open Source</h3>
+        <p>Every schematic, board file, and line of firmware pushed publicly. Fork it, fix it, ship it.</p>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="projects" class="section">
+    <h2><span class="tag">02</span> Projects</h2>
+ 
+    <div class="project-toggle" data-active="individual">
+      <button class="toggle-option active" data-view="individual" aria-pressed="true">
+        <i class="fa-solid fa-user icon"></i>
+        <span>Individual</span>
+      </button>
+      <button class="toggle-option" data-view="club" aria-pressed="false">
+        <i class="fa-solid fa-user-group icon"></i>
+        <span>Club</span>
+      </button>
+      <div class="toggle-thumb"></div>
+    </div>
+
+    <div class="project-panels">
+        <div class="project-panel" data-panel="individual">
+            <div class="project-card">
+                <div class="project-meta">
+                    <span class="project-index">[solo_01]</span>
+                    <h3>The Variable Game</h3>
+                    <p>A competitive browser puzzle game.</p>
+                    <div class="project-links">
+                      <a href="https://github.com/jamallyemin/the-variable-game" target="_blank" rel="noopener noreferrer">Source &rarr;</a>
+                      <a href="https://jamallyemin.github.io/The-Variable-Game/" target="_blank" rel="noopener noreferrer">Demo &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="project-panel" data-panel="club" hidden>
+            <div class="project-card project-card-empty">
+                <div class="project-meta">
+                    <span class="project-index">[club_01]</span>
+                    <h3>Nothing to see here yet..</h3>
+                    <p>Club-wide builds will show up here as they happen.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="members" class="section">
+        <h2><span class="tag">03</span> Members</h2>
+        <div class="members-list">
+           <div class="member-row">
+            <div class="member-id">
+                <span class="member-name">jamallyemin</span>
+                <span class="member-role">Leader</span>
+            </div>
+            <div class="member-links">
+                <a href="https://github.com/jamallyemin" target="_blank" rel="noopener noreferrer" class="member-link">
+                    <i class="fa-brands fa-github icon"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://discord.com/users/1448449119252254872" target="_blank" rel="noopener noreferrer" class="member-link">
+                    <i class="fa-brands fa-discord icon"></i>
+                    <span>Discord</span>
+                </a>
+                <a href="http://instagram.com/jamallyemin" target="_blank" rel="noopener noreferrer" class="member-link">
+                    <i class="fa-brands fa-instagram icon"></i>
+                    <span>Instagram</span>
+                </a>
+            </div>
+           </div> 
+        </div>
+    </section>
+    </main>
+
+    <script>
+        (function () {
+            var toggle= document.querySelector('.project-toggle');
+            var buttons = toggle.querySelectorAll('.toggle-option');
+            var panels = document.querySelectorAll('.project-panel');
+
+            buttons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var view = btn.dataset.view;
+                    toggle.dataset.active = view;
+
+                    buttons.forEach(function (b) {
+                        var isActive = b === btn;
+                        b.classList.toggle('active', isActive);
+                        b.setAttribute('aria-pressed', isActive);
+            });
+
+                    panels.forEach(function (p) {
+                        p.hidden = p.dataset.panel !== view;
+                    });
+                });
+            });
+        })();
+    </script>
+
+    <footer class="side-footer">
+        <div class="dot-rule"></div>
+        <p>&copy; 2026 Caspian Hack Club. All rights reserved.</p>
+
+        <p class="handle">@caspianhc</p>
+        <p class="supported-by">Supported by Hack Club</p>
+    </footer>
+
+    </body>
+    </html>
