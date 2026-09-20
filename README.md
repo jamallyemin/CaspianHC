@@ -8,19 +8,18 @@ website for Caspian Hack Club. built to display our hardware projects, custom pc
 - interactive project toggle (individual vs club builds)
 - member list with social links (github, discord, instagram)
 - fully responsive layout
-
+- photo gallery for hardware builds
+- club join / contact section
+- project updates & devlogs
+- light/dark theme
+- en,ru,az language support
+  
 ## tech stack
 
 - html5
 - css3 (flexbox, grid)
 - vanilla javascript
 - font awesome
-
-## future updates
-
-- photo gallery for hardware builds
-- club join / contact section
-- project updates & devlogs
 
 ## license
 
