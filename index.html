@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Caspian HC — Hardware & Open Source</title>
-<meta name="description" content="Caspian Hack Club is a Hack Club-approved hardware & open-source electronics club in Azerbaijan, building custom PCBs, microcontroller projects, and open-source hardware with teen makers aged 13-18.">
-<meta name="theme-color" content="#121316">
-<meta property="og:title" content="Caspian Hack Club — Hardware & Open Source">
-<meta property="og:description" content="A Hack Club-approved hardware & open-source electronics club in Azerbaijan for teens 13-18.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="logo.png">
-<link rel="icon" type="image/png" href="logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caspian HC — Hardware & Open Source</title>
+  <meta name="description" content="Caspian Hack Club is a Hack Club-approved hardware & open-source electronics club in Azerbaijan, building custom PCBs, microcontroller projects, and open-source hardware with teen makers aged 13-18.">
+  <meta name="theme-color" content="#121316">
+  <meta property="og:title" content="Caspian Hack Club — Hardware & Open Source">
+  <meta property="og:description" content="A Hack Club-approved hardware & open-source electronics club in Azerbaijan for teens 13-18.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="logo.png">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -271,6 +271,7 @@
 
     (function () {
       var toggle = document.querySelector('.project-toggle');
+      if (!toggle) return;
       var buttons = toggle.querySelectorAll('.toggle-option');
       var panels = document.querySelectorAll('.project-panel');
 
@@ -447,8 +448,8 @@
       var el = document.getElementById('eyebrow-text');
       var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      if (reduceMotion) {
-        el.textContent = text;
+      if (reduceMotion || !el) {
+        if (el) el.textContent = text;
         eyebrowTyped = true;
         return;
       }
