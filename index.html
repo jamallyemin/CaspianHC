@@ -3,155 +3,476 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Caspian Hack Club — Hardware & Open Source</title>
+<title>Caspian HC — Hardware & Open Source</title>
+<meta name="description" content="Caspian Hack Club is a Hack Club-approved hardware & open-source electronics club in Azerbaijan, building custom PCBs, microcontroller projects, and open-source hardware with teen makers aged 13-18.">
+<meta name="theme-color" content="#121316">
+<meta property="og:title" content="Caspian Hack Club — Hardware & Open Source">
+<meta property="og:description" content="A Hack Club-approved hardware & open-source electronics club in Azerbaijan for teens 13-18.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="logo.png">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
- 
-<header class="hero">
-  <nav class="topnav">
-    <a href="#" class="brand">
-      <img src="logo.png" alt="CaspianHC logo" class="brand-icon">
-      <span class="logo">Caspian Hack Club</span>
-    </a>
-    <a href="#projects" class="nav-link">projects/</a>
-  </nav>
- 
-  <div class="hero-content">
-    <p class="eyebrow">// hardware &amp; open-source electronics</p>
-    <h1>Caspian Hack Club</h1>
-    <p class="subtitle">We solder things, break things, and open-source the fix. Custom PCBs, microcontrollers, and hardware built in the open.</p>
-    <div class="cta-group">
-      <a href="#projects" class="btn btn-primary">view projects</a>
-      <a href="#what-we-do" class="btn btn-ghost">what we do</a>
-    </div>
-  </div>
-</header>
- 
-<main>
-  <section id="what-we-do" class="section">
-    <h2><span class="tag">01</span> What We Do</h2>
-    <div class="grid-3">
-      <div class="card">
-        <span class="card-index">[a]</span>
-        <h3>Custom PCBs</h3>
-        <p>Designing and fabricating boards from schematic to silkscreen. No black-box modules.</p>
-      </div>
-      <div class="card">
-        <span class="card-index">[b]</span>
-        <h3>Microcontrollers</h3>
-        <p>Firmware and embedded builds on AVR, ESP32, and whatever's on the bench that day.</p>
-      </div>
-      <div class="card">
-        <span class="card-index">[c]</span>
-        <h3>Open Source</h3>
-        <p>Every schematic, board file, and line of firmware pushed publicly. Fork it, fix it, ship it.</p>
-      </div>
-    </div>
-  </section>
- 
-  <section id="projects" class="section">
-    <h2><span class="tag">02</span> Projects</h2>
- 
-    <div class="project-toggle" data-active="individual">
-      <button class="toggle-option active" data-view="individual" aria-pressed="true">
-        <i class="fa-solid fa-user icon"></i>
-        <span>Individual</span>
-      </button>
-      <button class="toggle-option" data-view="club" aria-pressed="false">
-        <i class="fa-solid fa-user-group icon"></i>
-        <span>Club</span>
-      </button>
-      <div class="toggle-thumb"></div>
-    </div>
 
-    <div class="project-panels">
-        <div class="project-panel" data-panel="individual">
-            <div class="project-card">
-                <div class="project-meta">
-                    <span class="project-index">[solo_01]</span>
-                    <h3>The Variable Game</h3>
-                    <p>A competitive browser puzzle game.</p>
-                    <div class="project-links">
-                      <a href="https://github.com/jamallyemin/the-variable-game" target="_blank" rel="noopener noreferrer">Source &rarr;</a>
-                      <a href="https://jamallyemin.github.io/The-Variable-Game/" target="_blank" rel="noopener noreferrer">Demo &rarr;</a>
-                    </div>
-                </div>
-            </div>
+  <header class="hero">
+    <nav class="topnav">
+      <a href="#" class="brand">
+        <img src="logo.png" alt="Caspian Hack Club logo" class="brand-icon">
+        <span class="logo">Caspian Hack Club</span>
+      </a>
+      <div class="nav-controls">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang="az">AZ</button>
         </div>
-    </div>
-        <div class="project-panel" data-panel="club" hidden>
-            <div class="project-card project-card-empty">
-                <div class="project-meta">
-                    <span class="project-index">[club_01]</span>
-                    <h3>Nothing to see here yet..</h3>
-                    <p>Club-wide builds will show up here as they happen.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+      </div>
+    </nav>
 
-    <section id="members" class="section">
-        <h2><span class="tag">03</span> Members</h2>
-        <div class="members-list">
-           <div class="member-row">
-            <div class="member-id">
+    <img class="brand-bg" src="logo-mark.png" alt="" aria-hidden="true">
+
+    <div class="hero-content">
+      <p class="eyebrow"><span id="eyebrow-text"></span><span class="cursor">_</span></p>
+      <h1>Caspian Hack Club</h1>
+      <p class="subtitle" data-i18n="hero.subtitle">We solder things, break things, and open-source the fix. Custom PCBs, microcontrollers, and hardware built in the open.</p>
+      <div class="cta-group">
+        <a href="#projects" class="btn btn-primary" data-i18n="hero.cta_projects">view projects</a>
+        <a href="#about" class="btn btn-ghost" data-i18n="hero.cta_join">join us</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="content-layout">
+      <nav class="sidebar" aria-label="Sections">
+        <a href="#about" class="side-link active" data-target="about"><span class="path">~/about</span></a>
+        <a href="#what-we-do" class="side-link" data-target="what-we-do"><span class="path">~/what-we-do</span></a>
+        <a href="#projects" class="side-link" data-target="projects"><span class="path">~/projects</span></a>
+        <a href="#gallery" class="side-link" data-target="gallery"><span class="path">~/gallery</span></a>
+        <a href="#devlogs" class="side-link" data-target="devlogs"><span class="path">~/devlogs</span></a>
+        <a href="#members" class="side-link" data-target="members"><span class="path">~/members</span></a>
+      </nav>
+
+      <div class="content-panel">
+        <section id="about" class="section page" data-page="about">
+          <div class="section-head">
+            <h2 data-i18n="about.heading">About</h2>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-block">
+              <h3 data-i18n="about.hackclub_heading">What is Hack Club?</h3>
+              <p data-i18n="about.hackclub_body"><a href="https://hackclub.com" target="_blank" rel="noopener noreferrer">Hack Club</a> is a global nonprofit network of student-led coding &amp; maker clubs. It gives teenagers mentorship, resources, and sometimes funding or hardware to build real projects, run their own clubs, and meet other young makers around the world.</p>
+            </div>
+            <div class="about-block">
+              <h4 data-i18n="about.caspian_heading">What is Caspian Hack Club?</h4>
+              <p data-i18n="about.caspian_body">Caspian Hack Club is a Hack Club&ndash;approved club bringing that movement to Azerbaijan &mdash; open to teens roughly aged 13&ndash;18, focused on hands-on hardware: PCBs, microcontrollers, and open-source builds rather than just software.</p>
+            </div>
+          </div>
+
+          <div class="join-cta">
+            <p data-i18n="about.join_prompt">Want to join, or just curious?</p>
+            <div class="cta-group">
+              <a href="mailto:eminjamally8@gmail.com" class="btn btn-primary" data-i18n="about.email_btn">email us</a>
+              <a href="#" class="btn btn-ghost" data-i18n="about.discord_btn">discord</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="what-we-do" class="section page" data-page="what-we-do" hidden>
+          <div class="section-head">
+            <h2 data-i18n="whatwedo.heading">What We Do</h2>
+          </div>
+          <div class="grid-3">
+            <div class="card">
+              <span class="card-index"><i class="fa-solid fa-microchip"></i></span>
+              <h3 data-i18n="whatwedo.pcb_title">Custom PCBs</h3>
+              <p data-i18n="whatwedo.pcb_desc">Designing and fabricating boards from schematic to silkscreen. No black-box modules.</p>
+            </div>
+            <div class="card">
+              <span class="card-index"><i class="fa-solid fa-memory"></i></span>
+              <h3 data-i18n="whatwedo.mcu_title">Microcontrollers</h3>
+              <p data-i18n="whatwedo.mcu_desc">Firmware and embedded builds on AVR, ESP32, and whatever's on the bench that day.</p>
+            </div>
+            <div class="card">
+              <span class="card-index"><i class="fa-solid fa-code-branch"></i></span>
+              <h3 data-i18n="whatwedo.oss_title">Open Source</h3>
+              <p data-i18n="whatwedo.oss_desc">Every schematic, board file, and line of firmware pushed publicly. Fork it, fix it, ship it.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="section page" data-page="projects" hidden>
+          <div class="section-head">
+            <h2 data-i18n="projects.heading">Projects</h2>
+          </div>
+
+          <div class="project-toggle" data-active="individual">
+            <button class="toggle-option active" data-view="individual" aria-pressed="true">
+              <i class="fa-solid fa-user icon"></i>
+              <span data-i18n="projects.toggle_individual">Individual</span>
+            </button>
+            <button class="toggle-option" data-view="club" aria-pressed="false">
+              <i class="fa-solid fa-user-group icon"></i>
+              <span data-i18n="projects.toggle_club">Club</span>
+            </button>
+            <div class="toggle-thumb"></div>
+          </div>
+
+          <div class="project-panels">
+            <div class="project-panel" data-panel="individual">
+              <div class="project-card">
+                <div class="project-meta">
+                  <span class="project-index">
+                    <a href="https://jamallyemin.github.io/personal-website/" target="_blank" rel="noopener noreferrer" class="member-page" title="member-page">
+                      @jamallyemin
+                    </a>
+                  </span>                  
+                  <h3>The Variable Game</h3>
+                  <p data-i18n="projects.game_desc">An interactive electronics/coding game.</p>
+                  <div class="project-links">
+                    <a href="https://github.com/jamallyemin/the-variable-game" target="_blank" rel="noopener noreferrer"><span data-i18n="projects.source">Source</span> &rarr;</a>
+                    <a href="https://jamallyemin.github.io/The-Variable-Game/" target="_blank" rel="noopener noreferrer"><span data-i18n="projects.demo">Demo</span> &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-panel" data-panel="club" hidden>
+              <div class="project-card project-card-empty">
+                <div class="project-meta">
+                  <span class="project-index">[club_01]</span>
+                  <h3 data-i18n="projects.empty_title">Nothing to see here yet</h3>
+                  <p data-i18n="projects.empty_caption">Club-wide builds will show up here as they happen.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="gallery" class="section page" data-page="gallery" hidden>
+          <div class="section-head">
+            <h2 data-i18n="gallery.heading">Gallery</h2>
+          </div>
+          <div class="gallery-grid">
+            <div class="gallery-slot"><i class="fa-regular fa-image"></i></div>
+            <div class="gallery-slot"><i class="fa-regular fa-image"></i></div>
+            <div class="gallery-slot"><i class="fa-regular fa-image"></i></div>
+            <div class="gallery-slot"><i class="fa-regular fa-image"></i></div>
+          </div>
+          <p class="empty-caption" data-i18n="gallery.caption">Nothing here yet — photos go up as builds happen.</p>
+        </section>
+
+        <section id="devlogs" class="section page" data-page="devlogs" hidden>
+          <div class="section-head">
+            <h2 data-i18n="devlogs.heading">Devlogs</h2>
+          </div>
+          <div class="empty-block">
+            <p data-i18n="devlogs.caption">No devlogs yet — the first build write-up will land here.</p>
+          </div>
+        </section>
+
+        <section id="members" class="section page" data-page="members" hidden>
+          <div class="section-head">
+            <h2 data-i18n="members.heading">Members</h2>
+          </div>
+          <div class="members-list">
+            <div class="member-row">
+              <div class="member-id">
                 <span class="member-name">jamallyemin</span>
-                <span class="member-role">Leader</span>
+                <span class="member-role" data-i18n="members.role">Leader</span>
+              </div>
+              <div class="member-links">
+                <a href="https://github.com/jamallyemin" target="_blank" rel="noopener noreferrer" class="member-link" aria-label="GitHub" title="GitHub">
+                  <i class="fa-brands fa-github icon"></i>
+                </a>
+                <a href="https://discord.com/users/1448449119252254872" target="_blank" rel="noopener noreferrer" class="member-link" aria-label="Discord" title="Discord">
+                  <i class="fa-brands fa-discord icon"></i>
+                </a>
+                <a href="http://instagram.com/jamallyemin" target="_blank" rel="noopener noreferrer" class="member-link" aria-label="Instagram" title="Instagram">
+                  <i class="fa-brands fa-instagram icon"></i>
+                </a>
+              </div>
             </div>
-            <div class="member-links">
-                <a href="https://github.com/jamallyemin" target="_blank" rel="noopener noreferrer" class="member-link">
-                    <i class="fa-brands fa-github icon"></i>
-                    <span>GitHub</span>
-                </a>
-                <a href="https://discord.com/users/1448449119252254872" target="_blank" rel="noopener noreferrer" class="member-link">
-                    <i class="fa-brands fa-discord icon"></i>
-                    <span>Discord</span>
-                </a>
-                <a href="http://instagram.com/jamallyemin" target="_blank" rel="noopener noreferrer" class="member-link">
-                    <i class="fa-brands fa-instagram icon"></i>
-                    <span>Instagram</span>
-                </a>
-            </div>
-           </div> 
-        </div>
-    </section>
-    </main>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
 
-    <script>
-        (function () {
-            var toggle= document.querySelector('.project-toggle');
-            var buttons = toggle.querySelectorAll('.toggle-option');
-            var panels = document.querySelectorAll('.project-panel');
+  <script>
+    (function () {
+      var toggle = document.getElementById('theme-toggle');
+      var icon = document.getElementById('theme-icon');
 
-            buttons.forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    var view = btn.dataset.view;
-                    toggle.dataset.active = view;
+      function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        icon.className = theme === 'light' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        try { localStorage.setItem('chc-theme', theme); } catch (e) {}
+      }
 
-                    buttons.forEach(function (b) {
-                        var isActive = b === btn;
-                        b.classList.toggle('active', isActive);
-                        b.setAttribute('aria-pressed', isActive);
+      toggle.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+      });
+
+      var storedTheme = 'dark';
+      try { storedTheme = localStorage.getItem('chc-theme') || 'dark'; } catch (e) {}
+      applyTheme(storedTheme);
+    })();
+
+    (function () {
+      var pages = document.querySelectorAll('.page');
+      var sideLinks = document.querySelectorAll('.side-link');
+
+      function showPage(id, opts) {
+        var found = false;
+        pages.forEach(function (p) {
+          var match = p.dataset.page === id;
+          p.hidden = !match;
+          if (match) found = true;
+        });
+        if (!found) {
+          pages.forEach(function (p) { p.hidden = p.dataset.page !== 'about'; });
+          id = 'about';
+        }
+        sideLinks.forEach(function (l) {
+          l.classList.toggle('active', l.dataset.target === id);
+        });
+        if (opts && opts.scroll) {
+          var target = document.getElementById(id);
+          if (target) {
+            requestAnimationFrame(function () {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
+          }
+        }
+      }
 
-                    panels.forEach(function (p) {
-                        p.hidden = p.dataset.panel !== view;
-                    });
-                });
-            });
-        })();
-    </script>
+      function routeFromHash(opts) {
+        var id = location.hash.replace('#', '') || 'about';
+        showPage(id, opts);
+      }
 
-    <footer class="side-footer">
-        <div class="dot-rule"></div>
-        <p>&copy; 2026 Caspian Hack Club. All rights reserved.</p>
+      window.addEventListener('hashchange', function () {
+        routeFromHash({ scroll: true });
+      });
 
-        <p class="handle">@caspianhc</p>
-        <p class="supported-by">Supported by Hack Club</p>
-    </footer>
+      routeFromHash({ scroll: false });
+    })();
 
-    </body>
-    </html>
+    (function () {
+      var toggle = document.querySelector('.project-toggle');
+      var buttons = toggle.querySelectorAll('.toggle-option');
+      var panels = document.querySelectorAll('.project-panel');
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var view = btn.dataset.view;
+          toggle.dataset.active = view;
+
+          buttons.forEach(function (b) {
+            var isActive = b === btn;
+            b.classList.toggle('active', isActive);
+            b.setAttribute('aria-pressed', isActive);
+          });
+
+          panels.forEach(function (p) {
+            p.hidden = p.dataset.panel !== view;
+          });
+        });
+      });
+    })();
+
+    var translations = {
+      en: {
+        'hero.eyebrow': '// hardware & open-source electronics',
+        'hero.subtitle': 'We solder things, break things, and open-source the fix. Custom PCBs, microcontrollers, and hardware built in the open.',
+        'hero.cta_projects': 'view projects',
+        'hero.cta_join': 'join us',
+        'about.heading': 'About',
+        'about.hackclub_heading': 'What is Hack Club?',
+        'about.hackclub_body': '<a href="https://hackclub.com" target="_blank" rel="noopener noreferrer">Hack Club</a> is a global nonprofit network of student-led coding &amp; maker clubs. It gives teenagers mentorship, resources, and sometimes funding or hardware to build real projects, run their own clubs, and meet other young makers around the world.',
+        'about.caspian_heading': 'What is Caspian Hack Club?',
+        'about.caspian_body': 'Caspian Hack Club is a Hack Club\u2013approved club bringing that movement to Azerbaijan \u2014 open to teens roughly aged 13\u201318, focused on hands-on hardware: PCBs, microcontrollers, and open-source builds rather than just software.',
+        'about.join_prompt': 'Want to join, or just curious?',
+        'about.email_btn': 'email us',
+        'about.discord_btn': 'discord',
+        'whatwedo.heading': 'What We Do',
+        'whatwedo.pcb_title': 'Custom PCBs',
+        'whatwedo.pcb_desc': 'Designing and fabricating boards from schematic to silkscreen. No black-box modules.',
+        'whatwedo.mcu_title': 'Microcontrollers',
+        'whatwedo.mcu_desc': "Firmware and embedded builds on AVR, ESP32, and whatever's on the bench that day.",
+        'whatwedo.oss_title': 'Open Source',
+        'whatwedo.oss_desc': 'Every schematic, board file, and line of firmware pushed publicly. Fork it, fix it, ship it.',
+        'projects.heading': 'Projects',
+        'projects.toggle_individual': 'Individual',
+        'projects.toggle_club': 'Club',
+        'projects.game_desc': 'An interactive electronics/coding game.',
+        'projects.source': 'Source',
+        'projects.demo': 'Demo',
+        'projects.empty_title': 'Nothing to see here yet',
+        'projects.empty_caption': 'Club-wide builds will show up here as they happen.',
+        'gallery.heading': 'Gallery',
+        'gallery.caption': 'Nothing here yet \u2014 photos go up as builds happen.',
+        'devlogs.heading': 'Devlogs',
+        'devlogs.caption': 'No devlogs yet \u2014 the first build write-up will land here.',
+        'members.heading': 'Members',
+        'members.role': 'Leader',
+        'footer.supported': 'Supported by Hack Club'
+      },
+      ru: {
+        'hero.eyebrow': '// оборудование и электроника с открытым кодом',
+        'hero.subtitle': 'Мы паяем, ломаем и потом открываем исходники, чтобы всё починить. Кастомные платы, микроконтроллеры и железо — всё в открытом доступе.',
+        'hero.cta_projects': 'проекты',
+        'hero.cta_join': 'вступить',
+        'about.heading': 'О нас',
+        'about.hackclub_heading': 'Что такое Hack Club?',
+        'about.hackclub_body': '<a href="https://hackclub.com" target="_blank" rel="noopener noreferrer">Hack Club</a> — глобальная некоммерческая сеть кодерских и мейкерских клубов, которыми управляют сами школьники. Она даёт подросткам менторство, ресурсы, а иногда финансирование или оборудование, чтобы делать реальные проекты, вести свои клубы и знакомиться с другими молодыми мейкерами по всему миру.',
+        'about.caspian_heading': 'Что такое Caspian Hack Club?',
+        'about.caspian_body': 'Caspian Hack Club — клуб, одобренный Hack Club, который приносит это движение в Азербайджан — для подростков примерно 13\u201318 лет, с упором на железо: платы, микроконтроллеры и открытые разработки, а не только софт.',
+        'about.join_prompt': 'Хочешь вступить или просто интересно?',
+        'about.email_btn': 'написать нам',
+        'about.discord_btn': 'дискорд',
+        'whatwedo.heading': 'Чем мы занимаемся',
+        'whatwedo.pcb_title': 'Кастомные платы',
+        'whatwedo.pcb_desc': 'Разработка и изготовление плат от схемы до шелкографии. Никаких чёрных ящиков.',
+        'whatwedo.mcu_title': 'Микроконтроллеры',
+        'whatwedo.mcu_desc': 'Прошивки и embedded-разработки на AVR, ESP32 и на чём угодно, что лежит на столе в этот день.',
+        'whatwedo.oss_title': 'Открытый код',
+        'whatwedo.oss_desc': 'Каждая схема, файл платы и строчка прошивки — в открытом доступе. Форкай, чини, выпускай.',
+        'projects.heading': 'Проекты',
+        'projects.toggle_individual': 'Личные',
+        'projects.toggle_club': 'Клубные',
+        'projects.game_desc': 'Интерактивная игра про электронику и код.',
+        'projects.source': 'Исходники',
+        'projects.demo': 'Демо',
+        'projects.empty_title': 'Пока здесь пусто',
+        'projects.empty_caption': 'Клубные проекты появятся здесь по мере готовности.',
+        'gallery.heading': 'Галерея',
+        'gallery.caption': 'Пока пусто — фото появятся по мере сборки железа.',
+        'devlogs.heading': 'Devlog',
+        'devlogs.caption': 'Записей пока нет — первый отчёт о сборке появится здесь.',
+        'members.heading': 'Участники',
+        'members.role': 'Лидер',
+        'footer.supported': 'При поддержке Hack Club'
+      },
+      az: {
+        'hero.eyebrow': '// aparat və açıq mənbəli elektronika',
+        'hero.subtitle': 'Biz lehimləyirik, sındırırıq və düzəltmək üçün açıq mənbə edirik. Fərdi platalar, mikrokontrollerlər və açıq şəkildə hazırlanan avadanlıq.',
+        'hero.cta_projects': 'layihələr',
+        'hero.cta_join': 'qoşul',
+        'about.heading': 'Haqqımızda',
+        'about.hackclub_heading': 'Hack Club nədir?',
+        'about.hackclub_body': '<a href="https://hackclub.com" target="_blank" rel="noopener noreferrer">Hack Club</a> — məktəblilərin özləri idarə etdiyi proqramlaşdırma və konstruktor klublarından ibarət qlobal qeyri-kommersiya şəbəkəsidir. O, yeniyetmələrə mentorluq, resurslar və bəzən maliyyə və ya avadanlıq təqdim edir ki, real layihələr qursunlar, öz klublarını idarə etsinlər və dünyanın müxtəlif yerlərindən digər gənc yaradıcılarla tanış olsunlar.',
+        'about.caspian_heading': 'Caspian Hack Club nədir?',
+        'about.caspian_body': 'Caspian Hack Club — Hack Club tərəfindən təsdiqlənmiş və bu hərəkatı Azərbaycana gətirən klubdur — təxminən 13\u201318 yaş aralığındakı yeniyetmələr üçün açıqdır və yalnız proqram təminatı deyil, əsasən avadanlığa: platalara, mikrokontrollerlərə və açıq mənbəli layihələrə fokuslanır.',
+        'about.join_prompt': 'Qoşulmaq istəyirsən, ya da sadəcə maraqlanırsan?',
+        'about.email_btn': 'bizə yaz',
+        'about.discord_btn': 'discord',
+        'whatwedo.heading': 'Nə edirik',
+        'whatwedo.pcb_title': 'Fərdi platalar',
+        'whatwedo.pcb_desc': 'Sxemdən silkscreen-ə qədər plataların dizaynı və istehsalı. Qara qutu modullar yoxdur.',
+        'whatwedo.mcu_title': 'Mikrokontrollerlər',
+        'whatwedo.mcu_desc': 'AVR, ESP32 və o gün masada olan istənilən şey üzərində proqram təminatı və embedded inkişaf.',
+        'whatwedo.oss_title': 'Açıq mənbə',
+        'whatwedo.oss_desc': 'Hər sxem, plata faylı və proqram təminatı sətri açıq şəkildə paylaşılır. Fork et, düzəlt, buraxılış et.',
+        'projects.heading': 'Layihələr',
+        'projects.toggle_individual': 'Fərdi',
+        'projects.toggle_club': 'Klub',
+        'projects.game_desc': 'İnteraktiv elektronika/proqramlaşdırma oyunu.',
+        'projects.source': 'Mənbə',
+        'projects.demo': 'Demo',
+        'projects.empty_title': 'Hələ burada heç nə yoxdur',
+        'projects.empty_caption': 'Klub layihələri hazır olduqca burada görünəcək.',
+        'gallery.heading': 'Qalereya',
+        'gallery.caption': 'Hələ boşdur — şəkillər avadanlıq hazırlandıqca əlavə olunacaq.',
+        'devlogs.heading': 'Devlog',
+        'devlogs.caption': 'Hələ qeyd yoxdur — ilk quraşdırma haqqında yazı burada görünəcək.',
+        'members.heading': 'Üzvlər',
+        'members.role': 'Lider',
+        'footer.supported': 'Hack Club tərəfindən dəstəklənir'
+      }
+    };
+
+    var htmlKeys = ['about.hackclub_body'];
+    var eyebrowTyped = false;
+
+    function applyLang(lang) {
+      var dict = translations[lang] || translations.en;
+
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        var value = dict[key];
+        if (value === undefined) return;
+        if (htmlKeys.indexOf(key) !== -1) {
+          el.innerHTML = value;
+        } else {
+          el.textContent = value;
+        }
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      document.documentElement.lang = lang;
+      try { localStorage.setItem('chc-lang', lang); } catch (e) {}
+
+      var eyebrowEl = document.getElementById('eyebrow-text');
+      if (eyebrowEl && eyebrowTyped) {
+        eyebrowEl.textContent = dict['hero.eyebrow'];
+      }
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () { applyLang(btn.dataset.lang); });
+    });
+
+    var storedLang = 'en';
+    try { storedLang = localStorage.getItem('chc-lang') || 'en'; } catch (e) {}
+    applyLang(storedLang);
+
+    (function () {
+      var dict = translations[storedLang] || translations.en;
+      var text = dict['hero.eyebrow'];
+      var el = document.getElementById('eyebrow-text');
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduceMotion) {
+        el.textContent = text;
+        eyebrowTyped = true;
+        return;
+      }
+
+      var i = 0;
+      var iv = setInterval(function () {
+        el.textContent = text.slice(0, i + 1);
+        i++;
+        if (i >= text.length) {
+          clearInterval(iv);
+          eyebrowTyped = true;
+        }
+      }, 28);
+    })();
+  </script>
+
+  <footer class="site-footer">
+    <div class="dot-rule"></div>
+    <p class="slogan">[]</p>
+
+    <p class="handle">@caspianhc</p>
+    <p class="supported-by" data-i18n="footer.supported">Supported by Hack Club</p>
+    <p class="eof">// EOF</p>
+  </footer>
+
+</body>
+</html>
